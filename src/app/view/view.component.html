@@ -1,1 +1,34 @@
-funciona el viem
+<div class="container mt-4">
+    <h2 class="text-center">Crear Mensaje</h2>
+  
+    <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="reciver" class="form-label">Para:</label>
+        <input id="reciver" formControlName="reciver" type="text" class="form-control" placeholder="Nombre del receptor">
+        <div *ngIf="messageForm.get('reciver')?.invalid && messageForm.get('reciver')?.touched" class="text-danger">
+          El campo "Para" es obligatorio y debe tener al menos 3 caracteres.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="sender" class="form-label">De:</label>
+        <input id="sender" formControlName="sender" type="text" class="form-control" placeholder="Tu nombre">
+        <div *ngIf="messageForm.get('sender')?.invalid && messageForm.get('sender')?.touched" class="text-danger">
+          El campo "De" es obligatorio y debe tener al menos 3 caracteres.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="msg" class="form-label">Mensaje:</label>
+        <textarea id="msg" formControlName="msg" rows="4" class="form-control" placeholder="Escribe tu mensaje"></textarea>
+        <div *ngIf="messageForm.get('msg')?.invalid && messageForm.get('msg')?.touched" class="text-danger">
+          El campo "Mensaje" es obligatorio y debe tener al menos 5 caracteres.
+        </div>
+      </div>
+  
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary" [disabled]="messageForm.invalid">Crear</button>
+      </div>
+    </form>
+  </div>
+  

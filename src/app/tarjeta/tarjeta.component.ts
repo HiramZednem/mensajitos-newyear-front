@@ -27,7 +27,7 @@ export class TarjetaComponent implements OnInit {
 
   // Función para hacer la petición HTTP con el UUID
   getDataByUuid(uuid: string): void {
-    const apiUrl = `https://mensajitos-back-bueno.vercel.app/${uuid}`;  // Cambia esta URL por tu API
+    const apiUrl = `http://localhost:3000/${uuid}`;  // Cambia esta URL por tu API
 
     this.http.get(apiUrl).subscribe(
       (response) => {
