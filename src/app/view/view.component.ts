@@ -36,6 +36,12 @@ export class ViewComponent {
             console.log('Mensaje enviado con éxito:', response);
             alert('Mensaje creado con éxito!');
             this.messageForm.reset(); // Resetear el formulario después de enviarlo
+
+            const messageId = (response as any)._id;
+            const messageUrl = `http://localhost:4200/${messageId}`;
+            console.log('URL del mensaje:', messageUrl);
+            alert(`Comparte este enlace: ${messageUrl}`);
+            window.location.href = messageUrl;
           },
           (error) => {
             console.error('Error al enviar el mensaje:', error);
