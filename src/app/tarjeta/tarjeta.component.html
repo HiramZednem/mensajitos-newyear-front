@@ -1,0 +1,31 @@
+<!-- Si hay datos de mensaje -->
+<div *ngIf="messageData; else noMessage" class="card shadow-sm border-light mb-4" style="max-width: 500px; margin: auto;">
+  <div class="card-header bg-primary text-white">
+    <h5 class="card-title text-center">Mensajito de Feliz Año Nuevo!</h5>
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      <p><strong>De:</strong> <span class="text-muted"> {{ messageData.sender | titlecase }}</span></p>
+    </div>
+    <div class="mb-3">
+      <p><strong>Para:</strong> <span class="text-muted"> {{ messageData.reciver | titlecase }}</span></p>
+    </div>
+    
+    <div class="mb-3">
+      <p><strong>Message:</strong></p>
+      <p class="bg-light p-3 rounded">{{ messageData.msg }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Si no hay datos de mensaje, mostrar un mensaje de error -->
+<ng-template #noMessage>
+  <div class="card shadow-sm border-light mb-4" style="max-width: 500px; margin: auto;">
+    <div class="card-header bg-warning text-white">
+      <h5 class="card-title text-center">¡Ups! El mensaje se ha perdido</h5>
+    </div>
+    <div class="card-body">
+      <p class="text-center text-muted">Lo sentimos, no se encontraron datos del mensaje. Puede que haya expirado o que no se haya enviado correctamente.</p>
+    </div>
+  </div>
+</ng-template>
