@@ -30,7 +30,7 @@ export class ViewComponent {
       const messageData = this.messageForm.value;
 
       // Realizar la petición HTTP POST
-      this.http.post('http://localhost:3000/create', messageData)
+      this.http.post('https://mensajitos-api-495924555478.us-central1.run.app/create', messageData)
         .subscribe(
           (response) => {
             console.log('Mensaje enviado con éxito:', response);
