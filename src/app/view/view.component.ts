@@ -38,7 +38,9 @@ export class ViewComponent {
             this.messageForm.reset(); // Resetear el formulario después de enviarlo
 
             const messageId = (response as any)._id;
-            const messageUrl = `http://localhost:4200/${messageId}`;
+            // const messageUrl = `http://localhost:4200/${messageId}`;
+            const currentDomain = window.location.origin;
+            const messageUrl = `${currentDomain}/${messageId}`;
             console.log('URL del mensaje:', messageUrl);
             alert(`Comparte este enlace: ${messageUrl}`);
             window.location.href = messageUrl;
