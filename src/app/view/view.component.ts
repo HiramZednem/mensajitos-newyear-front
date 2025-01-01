@@ -13,7 +13,7 @@ export class ViewComponent {
 
   constructor(
     private http: HttpClient, // Para realizar las peticiones HTTP
-    private fb: FormBuilder  // Para usar el formulario reactivo
+    private fb: FormBuilder,  // Para usar el formulario reactivo
   ) {
     // Inicializar el formulario reactivo con validaciones
     this.messageForm = this.fb.group({
@@ -42,8 +42,12 @@ export class ViewComponent {
             const currentDomain = window.location.origin;
             const messageUrl = `${currentDomain}/${messageId}`;
             console.log('URL del mensaje:', messageUrl);
-            alert(`Comparte este enlace: ${messageUrl}`);
-            window.location.href = messageUrl;
+            navigator.clipboard.writeText(messageUrl).then(() => {
+              alert(`Comparte el enlace copiado al portapapeles`);
+            }).catch(err => {
+              console.error('Error al copiar el enlace al portapapeles:', err);
+              alert(`Comparte este enlace: ${messageUrl}`);
+            });
           },
           (error) => {
             console.error('Error al enviar el mensaje:', error);

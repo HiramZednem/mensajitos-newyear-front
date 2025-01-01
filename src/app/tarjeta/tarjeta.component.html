@@ -1,35 +1,87 @@
 <!-- Si hay datos de mensaje -->
-<div *ngIf="messageData; else noMessage" class="card shadow-sm border-light mb-4" style="max-width: 500px; margin: auto;">
-  <div class="card-header bg-primary text-white">
-    <h5 class="card-title text-center">Mensajito de Feliz Año Nuevo!</h5>
+<div *ngIf="messageData; else noMessage" class="card shadow-lg border-light mb-4 festive-card">
+  <div class="card-header bg-danger text-white festive-header">
+    <h5 class="card-title text-center">
+      🎄 ¡Feliz año nuevo! 🎁
+    </h5>
   </div>
-  <div class="card-body">
-    <div class="mb-3">
-      <p><strong>De:</strong> <span class="text-muted"> {{ messageData.sender | titlecase }}</span></p>
-    </div>
+  <div class="card-body festive-body">
     <div class="mb-3">
       <p><strong>Para:</strong> <span class="text-muted"> {{ messageData.reciver | titlecase }}</span></p>
     </div>
-    
     <div class="mb-3">
-      <p><strong>Message:</strong></p>
+      <p><strong>Mensaje:</strong></p>
       <p class="bg-light p-3 rounded">{{ messageData.msg }}</p>
+    </div>
+    <div class="text-center">
+      <p><strong>Con amor y cariño de </strong> <span class="text-muted"> {{ messageData.sender | titlecase }}</span></p>
     </div>
   </div>
 </div>
 
 <!-- Si no hay datos de mensaje, mostrar un mensaje de error -->
 <ng-template #noMessage>
-  <div class="card shadow-sm border-light mb-4" style="max-width: 500px; margin: auto;">
-    <div class="card-header bg-warning text-white">
-      <h5 class="card-title text-center">¡Ups! El mensaje se ha perdido</h5>
+  <div class="card shadow-lg border-light mb-4 festive-card">
+    <div class="card-header bg-warning text-white festive-header">
+      <h5 class="card-title text-center">❄️ ¡Ups! El mensaje se ha perdido 🎅</h5>
     </div>
-    <div class="card-body">
+    <div class="card-body festive-body">
       <p class="text-center text-muted">Lo sentimos, no se encontraron datos del mensaje. Puede que haya expirado o que no se haya enviado correctamente.</p>
     </div>
   </div>
 </ng-template>
 
 <div class="text-center mt-4">
-  <a href="" class="btn btn-primary">Crea tu mensaje aquí</a>
+  <a href="" class="btn btn-danger festive-button">Crea tu mensaje aquí 🎁</a>
 </div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+  body {
+    font-family: 'Pacifico', cursive;
+  }
+
+  .festive-card {
+    max-width: 500px;
+    margin: auto;
+    background: url('https://example.com/christmas-background.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 15px;
+  }
+
+  .festive-header {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-size: 1.25rem;
+  }
+
+  .festive-body {
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: #333;
+  }
+
+  .festive-button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ff5252, #ff1744);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .festive-button:hover {
+    background: linear-gradient(45deg, #ff1744, #ff5252);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  p, strong, span, h5, .btn {
+    font-family: 'Pacifico', cursive;
+  }
+</style>
