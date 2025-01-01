@@ -33,8 +33,45 @@
     </form>
 </div>
 
+<!-- Popup Modal -->
+<div *ngIf="isPopupVisible" class="popup-container">
+        <div class="popup-content">
+            <h4>🎉 ¡Mensaje creado con éxito! 🎉</h4>
+            <p>Comparte el enlace con tu amigo:</p>
+            <input type="text" class="form-control" [value]="messageUrl" readonly>
+            <div class="mt-3 text-center">
+                <button class="btn btn-primary me-2" (click)="copyToClipboard()">📋 Copiar Enlace</button>
+                <button class="btn btn-success" (click)="shareOnWhatsApp()">📱 Compartir por WhatsApp</button>
+            </div>
+            <div class="mt-3 text-center">
+                <button class="btn btn-danger" (click)="closePopup()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.popup-content {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
 
 body {
         font-family: 'Montserrat', sans-serif;

@@ -10,6 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Para cre
 })
 export class ViewComponent {
   messageForm: FormGroup; // Definir el formulario
+  isPopupVisible: boolean = false; // Controlar la visibilidad del popup
+  messageUrl: string = ''; // Guardar el enlace del mensaje
 
   constructor(
     private http: HttpClient, // Para realizar las peticiones HTTP
@@ -26,28 +28,13 @@ export class ViewComponent {
   // Método para enviar el formulario
   onSubmit(): void {
     if (this.messageForm.valid) {
-      // Preparar los datos a enviar
       const messageData = this.messageForm.value;
 
-      // Realizar la petición HTTP POST
       this.http.post('https://mensajitos-api-495924555478.us-central1.run.app/create', messageData)
         .subscribe(
-          (response) => {
-            console.log('Mensaje enviado con éxito:', response);
-            alert('Mensaje creado con éxito!');
-            this.messageForm.reset(); // Resetear el formulario después de enviarlo
-
-            const messageId = (response as any)._id;
-            // const messageUrl = `http://localhost:4200/${messageId}`;
-            const currentDomain = window.location.origin;
-            const messageUrl = `${currentDomain}/${messageId}`;
-            console.log('URL del mensaje:', messageUrl);
-            navigator.clipboard.writeText(messageUrl).then(() => {
-              alert(`Comparte el enlace copiado al portapapeles`);
-            }).catch(err => {
-              console.error('Error al copiar el enlace al portapapeles:', err);
-              alert(`Comparte este enlace: ${messageUrl}`);
-            });
+          (response: any) => {
+            this.messageUrl = `${window.location.origin}/${response._id}`;
+            this.isPopupVisible = true;
           },
           (error) => {
             console.error('Error al enviar el mensaje:', error);
@@ -55,8 +42,22 @@ export class ViewComponent {
           }
         );
     } else {
-      // Si el formulario no es válido, mostrar una advertencia
       alert('Por favor, completa todos los campos correctamente');
     }
+  }
+
+  copyToClipboard(): void {
+    navigator.clipboard.writeText(this.messageUrl).then(() => {
+      alert('Enlace copiado al portapapeles');
+    });
+  }
+
+  shareOnWhatsApp(): void {
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent('🎉 Mira este mensaje: ' + this.messageUrl)}`;
+    window.open(whatsappUrl, '_blank');
+  }
+
+  closePopup(): void {
+    this.isPopupVisible = false;
   }
 }
