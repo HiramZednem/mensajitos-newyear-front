@@ -1,6 +1,7 @@
-<div class="container mt-4 festive-container">
-  <h2 class="text-center festive-title">🎁 Crea un Mensaje 🎄</h2>
-
+<div class="mt-4 festive-container">
+  <div class="card-header bg-danger text-white text-center" style="border-top-left-radius: 15px; border-top-right-radius: 15px; font-family: 'Alfa Slab One', sans-serif; padding: 10px; margin-bottom: 10px">
+    <h4 class="card-title">🎁 Crear Mensaje Navideño 🎄</h4>
+  </div>
   <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
           <label for="reciver" class="form-label">Para:</label>
@@ -33,16 +34,22 @@
 </div>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
 
 body {
     font-family: 'Pacifico', cursive;
 }
 
+form {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
 .festive-container {
     background: url('https://example.com/christmas-background.jpg') no-repeat center center;
     background-size: cover;
-    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     margin-bottom: 30;
@@ -89,7 +96,7 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-label, .form-label, .btn, h2, div {
+label, .form-label, .btn, h4, div {
     font-family: 'Pacifico', cursive;
 }
 </style>
