@@ -1,102 +1,101 @@
 <div class="mt-4 festive-container">
-  <div class="card-header bg-danger text-white text-center" style="border-top-left-radius: 15px; border-top-right-radius: 15px; font-family: 'Alfa Slab One', sans-serif; padding: 10px; margin-bottom: 10px">
-    <h4 class="card-title">🎁 Crear Mensaje Navideño 🎄</h4>
-  </div>
-  <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-          <label for="reciver" class="form-label">Para:</label>
-          <input id="reciver" formControlName="reciver" type="text" class="form-control festive-input" placeholder="Nombre del receptor">
-          <div *ngIf="messageForm.get('reciver')?.invalid && messageForm.get('reciver')?.touched" class="text-danger festive-error">
-              El campo "Para" es obligatorio y debe tener al menos 3 caracteres.
-          </div>
-      </div>
+    <div class="card-header bg-danger text-white text-center" style="border-top-left-radius: 15px; border-top-right-radius: 15px; font-family: 'Alfa Slab One', sans-serif; padding: 10px; margin-bottom: 10px">
+        <h4 class="card-title">🎉 Crea tu mensaje de año nuevo! 🎉</h4>
+    </div>
+    <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                    <label for="reciver" class="form-label">Para:</label>
+                    <input id="reciver" formControlName="reciver" type="text" class="form-control festive-input" placeholder="Nombre del receptor">
+                    <div *ngIf="messageForm.get('reciver')?.invalid && messageForm.get('reciver')?.touched" class="text-danger festive-error">
+                            El campo "Para" es obligatorio y debe tener al menos 3 caracteres.
+                    </div>
+            </div>
 
-      <div class="mb-3">
-          <label for="sender" class="form-label">De:</label>
-          <input id="sender" formControlName="sender" type="text" class="form-control festive-input" placeholder="Tu nombre">
-          <div *ngIf="messageForm.get('sender')?.invalid && messageForm.get('sender')?.touched" class="text-danger festive-error">
-              El campo "De" es obligatorio y debe tener al menos 3 caracteres.
-          </div>
-      </div>
+            <div class="mb-3">
+                    <label for="sender" class="form-label">De:</label>
+                    <input id="sender" formControlName="sender" type="text" class="form-control festive-input" placeholder="Tu nombre">
+                    <div *ngIf="messageForm.get('sender')?.invalid && messageForm.get('sender')?.touched" class="text-danger festive-error">
+                            El campo "De" es obligatorio y debe tener al menos 3 caracteres.
+                    </div>
+            </div>
 
-      <div class="mb-3">
-          <label for="msg" class="form-label">Mensaje:</label>
-          <textarea id="msg" formControlName="msg" rows="4" class="form-control festive-input" placeholder="Escribe tu mensaje"></textarea>
-          <div *ngIf="messageForm.get('msg')?.invalid && messageForm.get('msg')?.touched" class="text-danger festive-error">
-              El campo "Mensaje" es obligatorio y debe tener al menos 5 caracteres.
-          </div>
-      </div>
+            <div class="mb-3">
+                    <label for="msg" class="form-label">Mensaje:</label>
+                    <textarea id="msg" formControlName="msg" rows="4" class="form-control festive-input" placeholder="Escribe tu mensaje"></textarea>
+                    <div *ngIf="messageForm.get('msg')?.invalid && messageForm.get('msg')?.touched" class="text-danger festive-error">
+                            El campo "Mensaje" es obligatorio y debe tener al menos 5 caracteres.
+                    </div>
+            </div>
 
-      <div class="text-center">
-          <button type="submit" class="btn btn-danger festive-button" [disabled]="messageForm.invalid">✨ Crear Mensaje 🎉</button>
-      </div>
-  </form>
+            <div class="text-center">
+                    <button type="submit" class="btn btn-danger festive-button" [disabled]="messageForm.invalid">✨ Crear Mensaje ✨</button>
+            </div>
+    </form>
 </div>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 body {
-    font-family: 'Pacifico', cursive;
+        font-family: 'Montserrat', sans-serif;
 }
 
 form {
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }
 
 .festive-container {
-    background: url('https://example.com/christmas-background.jpg') no-repeat center center;
-    background-size: cover;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    margin-bottom: 30;
+        background: url('https://example.com/christmas-background.jpg') no-repeat center center;
+        background-size: cover;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        margin-bottom: 30;
 }
 
 .festive-title {
-    color: #ff5252;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        color: #ff5252;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .festive-input {
-    border: 2px solid #ff5252;
-    border-radius: 10px;
-    font-family: 'Pacifico', cursive;
-    font-size: 1rem;
+        border: 2px solid #ff5252;
+        border-radius: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
 }
 
 .festive-input:focus {
-    border-color: #ff1744;
-    box-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+        border-color: #ff1744;
+        box-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
 }
 
 .festive-error {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #ff1744;
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #ff1744;
 }
 
 .festive-button {
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 25px;
-    background: linear-gradient(45deg, #ff5252, #ff1744);
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 25px;
+        background: linear-gradient(45deg, #ff5252, #ff1744);
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
 }
 
 .festive-button:hover {
-    background: linear-gradient(45deg, #ff1744, #ff5252);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        background: linear-gradient(45deg, #ff1744, #ff5252);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 label, .form-label, .btn, h4, div {
-    font-family: 'Pacifico', cursive;
+        font-family: 'Montserrat', sans-serif;
 }
 </style>

@@ -2,7 +2,7 @@
 <div *ngIf="messageData; else noMessage" class="card shadow-lg border-light mb-4 festive-card">
   <div class="card-header bg-danger text-white festive-header">
     <h5 class="card-title text-center">
-      🎄 ¡Feliz año nuevo! 🎁
+      🎆 ¡Feliz año nuevo! 🎆
     </h5>
   </div>
   <div class="card-body festive-body">
@@ -10,11 +10,10 @@
       <p><strong>Para:</strong> <span class="text-muted"> {{ messageData.reciver | titlecase }}</span></p>
     </div>
     <div class="mb-3">
-      <p><strong>Mensaje:</strong></p>
       <p class="bg-light p-3 rounded">{{ messageData.msg }}</p>
     </div>
     <div class="text-center">
-      <p><strong>Con amor y cariño de </strong> <span class="text-muted"> {{ messageData.sender | titlecase }}</span></p>
+      <p>Con amor y cariño de <span class="text-muted"> {{ messageData.sender | titlecase }}</span></p>
     </div>
   </div>
 </div>
@@ -23,24 +22,23 @@
 <ng-template #noMessage>
   <div class="card shadow-lg border-light mb-4 festive-card">
     <div class="card-header bg-warning text-white festive-header">
-      <h5 class="card-title text-center">❄️ ¡Ups! El mensaje se ha perdido 🎅</h5>
+      <h5 class="card-title text-center">❄️ ¡Ups! El mensaje se ha perdido ❄️</h5>
     </div>
     <div class="card-body festive-body">
-      <p class="text-center text-muted">Lo sentimos, no se encontraron datos del mensaje. Puede que haya expirado o que no se haya enviado correctamente.</p>
+      <p class="text-center text-muted">Lo sentimos, no se encontraron datos del mensaje. Puede que haya expirado o que no se haya enviado correctamente. O espera unos 10s a ver si carga!</p>
     </div>
   </div>
 </ng-template>
 
 <div class="text-center mt-4">
-  <a href="" class="btn btn-danger festive-button">Crea tu mensaje aquí 🎁</a>
+  <a href="" class="btn btn-danger festive-button">🎁 Crea tu mensaje aquí 🎁</a>
 </div>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
   body {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .festive-card {
@@ -83,6 +81,6 @@
   }
 
   p, strong, span, h5, .btn {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Montserrat', sans-serif;
   }
 </style>
